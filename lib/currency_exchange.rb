@@ -1,10 +1,12 @@
 module CurrencyExchange
+  require 'json'
+  require 'date'
 
-  # Return the exchange rate between from_currency and to_currency on date as a float.
-  # Raises an exception if unable to calculate requested rate.
-  # Raises an exception if there is no rate for the date provided.
+  @currency_file = File.read('./data/eurofxref-hist-90d.json')
+  @data = JSON.parse(@currency_file)
+
   def self.rate(date, from_currency, to_currency)
-    # TODO: calculate and return rate
+    date = date.strftime('%Y-%m-%d')
+    @data[date][to_currency] / @data[date][from_currency]
   end
-
 end
