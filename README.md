@@ -1,15 +1,35 @@
-# FreeAgent Coding Challenge
+## Solution Setup and Run Instructions
 
-Thank you for your interest in the FreeAgent Coding Challenge.  This template is a barebones guide to get you started.  Please add any gems, folders, files, etc. you see fit in order to produce a solution you're proud of.
+1. Install gems:
 
-## Coding Challenge Instructions
+```
+bundle install
+```
 
-Please see the INSTRUCTIONS.md file for more information.
+2. Run tests:
 
-## Your Solution Setup and Run Instructions
+```
+bundle exec ruby test/run_tests.rb
+```
 
-Please include instructions on how to setup and run your solution here.
+3. Start a console session:
 
-## Your Design Decisions
+```
+bundle exec irb -Ilib
+```
 
-We'd love to hear your thoughts around any design decisions you made while coding your solution.
+4. Load the template library:
+
+```
+require 'currency_exchange'
+```
+
+5. Calculate an exchange rate:
+
+```
+CurrencyExchange.rate(Date.new(2018, 11, 22), "USD", "GBP")
+```
+
+## Design Decisions
+
+Everything was made with simplicity in mind. It was tempting to (and I did) create different classes outside of the currency_exchange.rb file which would contain things such as parsers and calculators but I decided against it to look for a more simple and faster solution which would not bloat the application. This comes with the tradeoff of having to manually change the base_currency variable and JSON if other currencies or file types were chosen.
